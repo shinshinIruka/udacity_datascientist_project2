@@ -13,3 +13,7 @@
 3. Run your web app: `python run.py`
 
 4. Click the `PREVIEW` button to open the homepage
+
+
+### Github
+- Link: https://github.com/shinshinIruka/udacity_datascientist_project2.git
