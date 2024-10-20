@@ -47,6 +47,7 @@ def tokenize(text):
     Returns:
     tokens (list of str): Cleaned and tokenized text data.
     """
+    # case normalization, 
     url_regex = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     text = re.sub(url_regex, 'urlplaceholder', text)
     text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
@@ -74,13 +75,13 @@ def build_model():
         ('clf', MultiOutputClassifier(RandomForestClassifier()))
     ])
 
-#     parameters = {
-#         'clf__estimator__n_estimators': [50, 100],
-#     }
+    parameters = {
+        'clf__estimator__n_estimators': [50, 100],
+    }
 
-#     cv = GridSearchCV(pipeline, param_grid=parameters)
+    gridMdl = GridSearchCV(pipeline, param_grid=parameters)
     
-    return pipeline
+    return gridMdl
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
